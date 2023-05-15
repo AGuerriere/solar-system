@@ -14,7 +14,6 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
@@ -179,11 +178,8 @@ function animate() {
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  sun.rotation.x += 0.05;
-  sun.rotation.y += 0.075;
-  sun.rotation.z += 0.05;
 
-  camera.position.z = t * 0.001;
+  camera.position.z = t * -0.01;
   // camera.position.x = t * -0.0002;
   // camera.rotation.y = t * -0.0002;
 }
