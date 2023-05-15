@@ -20,7 +20,7 @@ renderer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10,3,16,100)
 const material = new THREE.MeshStandardMaterial( {color: 0xFF6347} );
-const torus = new THREE.Mesh(geometry, material);
+const torus = new THREE.Mesh(geometry, material); 
 
 // Sun
 const sunTexture = new THREE.TextureLoader().load('imgs/sun.jpg')
@@ -32,6 +32,9 @@ const sun = new THREE.Mesh(
   })
 )
 scene.add(sun)
+sun.position.z = -20;
+sun.position.setX(0);
+
 
 
 // Earth
@@ -50,7 +53,7 @@ earth.position.setX(0);
 
 
 // Mars
-const marsTexture = new THREE.TextureLoader().load('imgs/mars.png')
+const marsTexture = new THREE.TextureLoader().load('imgs/mars.jpeg')
 
 const mars = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -64,7 +67,7 @@ mars.position.z = 40;
 mars.position.setX(0);
 
 // Mercury
-const mercuryTexture = new THREE.TextureLoader().load('imgs/mercury.jpg')
+const mercuryTexture = new THREE.TextureLoader().load('imgs/mercury.jpeg')
 
 const mercury = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -79,7 +82,7 @@ mercury.position.setX(0);
 
 
 // Jupiter
-const jupiterTexture = new THREE.TextureLoader().load('imgs/jupiter.jpg')
+const jupiterTexture = new THREE.TextureLoader().load('imgs/jupiter.jpeg')
 
 const jupiter = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -94,7 +97,7 @@ jupiter.position.setX(0);
 
 
 // Neptune
-const neptuneTexture = new THREE.TextureLoader().load('imgs/neptune.jpg')
+const neptuneTexture = new THREE.TextureLoader().load('imgs/neptune.jpeg')
 
 const neptune = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -107,6 +110,8 @@ scene.add(neptune)
 neptune.position.z = 100;
 neptune.position.setX(0);
 
+
+// Light Source
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5,5,5)
 
@@ -119,6 +124,7 @@ scene.add(lighterHelper, gridHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
+// Stars
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25);
   const material = new THREE.MeshStandardMaterial( { color: 0xffffff })
@@ -130,7 +136,7 @@ function addStar() {
   scene.add(star)
 }
 
-Array(200).fill().forEach(addStar)
+Array(400).fill().forEach(addStar)
 
 const spaceTexture = new THREE.TextureLoader().load('imgs/space.jpg');
 scene.background = spaceTexture;
@@ -139,14 +145,15 @@ scene.background = spaceTexture;
 function animate() {
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.01;
-  torus.rotation.y +=0.005;
-  torus.rotation.z += 0.01;
+  sun.rotation.x += 0.001;
+  sun.rotation.y +=0.0005;
+  sun.rotation.z += 0.001;
 
   controls.update();
 
   renderer.render(scene, camera);
 }
+
 
 // Scroll Animation
 
