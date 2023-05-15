@@ -117,10 +117,6 @@ pointLight.position.set(5,5,5)
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight)
 
-const lighterHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lighterHelper, gridHelper)
-
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Stars
