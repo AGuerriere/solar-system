@@ -93,6 +93,20 @@ jupiter.position.z = 80;
 jupiter.position.setX(0);
 
 
+// Neptune
+const neptuneTexture = new THREE.TextureLoader().load('imgs/neptune.jpg')
+
+const neptune = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial( {
+    map: neptuneTexture,
+  })
+)
+scene.add(neptune)
+
+neptune.position.z = 100;
+neptune.position.setX(0);
+
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5,5,5)
 
@@ -142,9 +156,9 @@ function moveCamera() {
   sun.rotation.y += 0.075;
   sun.rotation.z += 0.05;
 
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.rotation.y = t * -0.0002;
+  camera.position.z = t * 0.001;
+  // camera.position.x = t * -0.0002;
+  // camera.rotation.y = t * -0.0002;
 }
 
 document.body.onscroll = moveCamera;
