@@ -130,13 +130,13 @@ function addStar() {
   const material = new THREE.MeshStandardMaterial( { color: 0xffffff })
   const star = new THREE.Mesh( geometry , material );
 
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100));
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 200));
 
   star.position.set(x, y, z);
   scene.add(star)
 }
 
-Array(400).fill().forEach(addStar)
+Array(500).fill().forEach(addStar)
 
 const spaceTexture = new THREE.TextureLoader().load('imgs/space.jpg');
 scene.background = spaceTexture;
@@ -148,6 +148,26 @@ function animate() {
   sun.rotation.x += 0.001;
   sun.rotation.y +=0.0005;
   sun.rotation.z += 0.001;
+
+  earth.rotation.x += 0.001;
+  earth.rotation.y +=0.0005;
+  earth.rotation.z += 0.001;
+
+  jupiter.rotation.x += 0.001;
+  jupiter.rotation.y +=0.0005;
+  jupiter.rotation.z += 0.001;
+
+  mercury.rotation.x += 0.001;
+  mercury.rotation.y +=0.0005;
+  mercury.rotation.z += 0.001;
+
+  mars.rotation.x += 0.001;
+  mars.rotation.y +=0.0005;
+  mars.rotation.z += 0.001;
+
+  neptune.rotation.x += 0.001;
+  neptune.rotation.y +=0.0005;
+  neptune.rotation.z += 0.001;
 
   controls.update();
 
