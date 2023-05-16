@@ -69,3 +69,9 @@ blockquote p {
 .left {
   grid-column: 6 / 12;
 }
+
+@media screen and (max-width: 1690px) {
+  .desktop-only {
+    display: none;
+  }
+}
