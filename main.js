@@ -141,6 +141,7 @@ const spaceTexture = new THREE.TextureLoader().load('imgs/space.jpg');
 scene.background = spaceTexture;
 
 
+// Make the planets rotate
 function animate() {
   requestAnimationFrame(animate);
 
@@ -173,18 +174,14 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-
 // Scroll Animation
-
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-
-  camera.position.z = t * -0.01;
-  // camera.position.x = t * -0.0002;
-  // camera.rotation.y = t * -0.0002;
+  if (t < -4){
+    camera.position.z = t * -0.01;
+  }
 }
 
 document.body.onscroll = moveCamera;
-moveCamera();
 
 animate();
