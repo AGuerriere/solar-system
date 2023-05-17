@@ -1,10 +1,8 @@
-
 canvas {
   position: fixed;
   top: 0;
   left: 0;
 }
-
 
 :root {
   --dark: rgba(15, 15, 15, 0.95);
@@ -12,6 +10,10 @@ canvas {
   font-family:  sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+#bg {
+  height: 100vh !important;
 }
 
 
@@ -23,7 +25,6 @@ main {
   width: 100%;
   margin: 0px auto;
   padding: 120px 0px;
-  
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -40,6 +41,7 @@ header {
   font-size: 2.5rem;
   padding: 2rem;
   margin-bottom: var(--spacing);
+  width: fit-content;
 }
 
 section {
@@ -74,4 +76,17 @@ blockquote p {
   .desktop-only {
     display: none;
   }
+
+  header {
+    font-size: 1.2rem;
+  }
+
+  section {
+    font-size: 1rem;
+  }
+
+  blockquote p {
+    font-size: 3rem;
+  }
+
 }

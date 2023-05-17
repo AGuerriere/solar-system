@@ -17,14 +17,18 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 renderer.render(scene, camera);
 
-const geometry = new THREE.TorusGeometry(10,3,16,100)
-const material = new THREE.MeshStandardMaterial( {color: 0xFF6347} );
-const torus = new THREE.Mesh(geometry, material); 
+// Add event listener on resize to ensure that everything resizes without a need to refresh
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener('resize', onWindowResize, false);
 
 // Sun
 const sunTexture = new THREE.TextureLoader().load('imgs/sun.jpg')
 
-const sun = new THREE.Mesh(
+let sun = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshStandardMaterial( {
     map: sunTexture,
