@@ -12,11 +12,6 @@ canvas {
   font-style: normal;
 }
 
-#bg {
-  height: 100vh !important;
-}
-
-
 main {
   width: 100vw;
   color: white;
@@ -75,6 +70,10 @@ blockquote p {
 @media screen and (max-width: 1690px) {
   .desktop-only {
     display: none;
+  }
+
+  canvas {
+    min-height: 100%;
   }
 
   header {

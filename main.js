@@ -184,4 +184,5 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 
+
 animate();
